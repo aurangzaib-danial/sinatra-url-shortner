@@ -20,12 +20,19 @@
 
 <% if logged_in? %>
 	<a href="/logout" id="logout">Logout</a>
+	
 	<h3 id="made_by">URLS made by <%= current_user.username %></h3>
+	
 	<% current_user.urls.each do |url_object| %>
-		<ol>
-			<li><a href="<%= url_object.shorten %>"><%= url_object.url %></a></li>
-		</ol>
+		<ul>
+			<li>
+				Actual URL: <a href="<%= url_object.url %>" target="_blank"><%= url_object.url %></a>
+				<br>
+				Shortened URL: <a href="<%= url_object.shorten %>" target="_blank"><%= url_object.shorten %></a>
+			</li>
+		</ul>
 	<% end %>
+
 <% else %>
 	<div id="signup-login">
 		<h3>Login/SignUp to save URLS you create!</h3>

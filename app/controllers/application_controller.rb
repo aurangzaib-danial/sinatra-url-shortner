@@ -14,6 +14,7 @@ class ApplicationController < Sinatra::Base
   post '/urls' do
   	url = Url.new(url: params[:url])
   	if url.valid_url?
+      url.user_id = session[:user_id] if logged_in?
   		url.save
 	  	flash[:shortened_url] = url.shorten
 	  else

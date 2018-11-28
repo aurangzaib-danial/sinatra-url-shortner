@@ -8,4 +8,7 @@
 <ul>
 	<li>Bundle all gems first</li>
 	<li>Start server with shotgun instead of rackup</li>
+	<li>Shotgun server port should be 9393</li>
 </ul>
+
+<h3><a href="#">Blog post</a></h3>
