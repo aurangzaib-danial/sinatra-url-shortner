@@ -10,4 +10,4 @@
 	<li>Start server with rackup or shotgun, your server port should be 9393</li>
 </ul>
 
-<h3><a href="#">Blog post</a></h3>
+<h3><a href="https://medium.com/@aurangzaib.danial/url-shortener-made-in-sinatra-ruby-web-framework-88e157848fdc">Blog post</a></h3>
