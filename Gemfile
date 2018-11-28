@@ -14,6 +14,8 @@ gem 'bcrypt'
 gem 'shotgun'
 gem 'require_all'
 
+
 group :development do
 	gem 'pry'
+	gem 'rspec'
 end
