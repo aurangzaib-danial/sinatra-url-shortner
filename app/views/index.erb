@@ -29,6 +29,12 @@
 				Actual URL: <a href="<%= url_object.url %>" target="_blank"><%= url_object.url %></a>
 				<br>
 				Shortened URL: <a href="<%= url_object.shorten %>" target="_blank"><%= url_object.shorten %></a>
+				<br>
+				<br>
+				<form action="/urls/<%= url_object.id %>" method="post">
+					<input type="hidden" name="_method" value="delete">
+					<button type="sumibt">Delete</button>
+				</form>
 			</li>
 		</ul>
 	<% end %>

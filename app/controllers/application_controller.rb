@@ -32,12 +32,19 @@ class ApplicationController < Sinatra::Base
   	end
   end
 
+  delete '/urls/:id' do
+    url = Url.find_by_id(params[:id])
+    if logged_in? && url.user_id == session[:user_id]
+      url.destroy
+    end 
+    redirect '/'
+  end
+
   helpers do 
 
     def current_user
       @current_user ||= User.find(session[:user_id])
     end
-
 
     def logged_in?
       !!session[:user_id]
