@@ -16,3 +16,7 @@ input#url {
 	padding: 5px;
 	border-radius: 5px;
 }
+
+#error {
+	color: red;
+}

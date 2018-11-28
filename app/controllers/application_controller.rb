@@ -12,8 +12,23 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/urls' do
-  	binding.pry
-  	redirect '/'
+  	url = Url.new(url: params[:url])
+  	if url.valid_url?
+  		url.save
+	  	flash[:shortened_url] = url.shorten
+	  else
+	  	flash[:error] = "Url not valid!"
+	  end
+	  redirect '/'
+  end
+
+  get '/:id_base32' do
+  	url_object = Url.find_by_base32_id(params[:id_base32])
+  	if url_object
+  		redirect url_object.url
+  	else
+  		redirect '/'
+  	end
   end
 
 end

@@ -8,3 +8,12 @@
 		<button type="submit">Shorten Url</button>
 	</p>
 </form>
+
+<% if flash[:shortened_url] %>
+	<h3>Fresh Url For You!</h3>
+	<h3><a href="<%= flash[:shortened_url] %>" target="_blank"><%= flash[:shortened_url] %></a></h3>
+<% end %>
+
+<% if flash[:error] %>
+	<h3 id="error"><%= flash[:error] %></h3>
+<% end %>

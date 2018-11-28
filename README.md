@@ -4,3 +4,8 @@
 	<li>Shortern a url</li>
 	<li>Sign up as a user to save your shorten links</li>
 </ul>
+<h3>Instruction</h3>
+<ul>
+	<li>Bundle all gems first</li>
+	<li>Start server with shotgun instead of rackup</li>
+</ul>
