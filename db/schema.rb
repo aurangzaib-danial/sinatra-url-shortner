@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2018_11_28_041851) do
   create_table "urls", force: :cascade do |t|
     t.string "url"
     t.integer "user_id"
-    t.string "id_base32"
   end
 
   create_table "users", force: :cascade do |t|

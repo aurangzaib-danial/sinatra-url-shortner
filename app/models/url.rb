@@ -1,12 +1,15 @@
 class Url < ActiveRecord::Base
 	belongs_to :user
 
-	def id_to_base32
-		self.id_base32 = id.to_s(32)
+	def encode_id
+		id.to_s(32)
+	end
+
+	def decode_id
+		id.to_i(32)
 	end
 
 	def shorten
-		id_to_base32
-		"http://localhost/#{id_base32}"
+		"http://localhost/#{encode_id}"
 	end
 end

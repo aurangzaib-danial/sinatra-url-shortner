@@ -1,5 +1,5 @@
 class ApplicationController < Sinatra::Base
-
+	use Rack::Flash
 	configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -9,6 +9,11 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
   	erb :index
+  end
+
+  post '/urls' do
+  	binding.pry
+  	redirect '/'
   end
 
 end
