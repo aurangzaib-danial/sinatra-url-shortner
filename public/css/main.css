@@ -17,6 +17,24 @@ input#url {
 	border-radius: 5px;
 }
 
-#error {
+.error {
 	color: red;
+}
+
+#signup-login {
+	margin-top: 100px;
+	width: 0 auto;
+	font-size: 20px;
+}
+
+#logout {
+	position: absolute;
+	top: 35px;
+	right: 100px;
+	display: block;
+	font-size: 20px;
+}
+
+#made_by {
+	margin-top: 100px;
 }

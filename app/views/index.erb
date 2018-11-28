@@ -15,5 +15,23 @@
 <% end %>
 
 <% if flash[:error] %>
-	<h3 id="error"><%= flash[:error] %></h3>
+	<h3 class="error"><%= flash[:error] %></h3>
 <% end %>
+
+<% if logged_in? %>
+	<a href="/logout" id="logout">Logout</a>
+	<h3 id="made_by">URLS made by <%= current_user.username %></h3>
+	<% current_user.urls.each do |url_object| %>
+		<ol>
+			<li><a href="<%= url_object.shorten %>"><%= url_object.url %></a></li>
+		</ol>
+	<% end %>
+<% else %>
+	<div id="signup-login">
+		<h3>Login/SignUp to save URLS you create!</h3>
+		<p><a href="/signup">SignUp</a></p>
+		<p><a href="/login">Login</a></p>
+	</div>
+<% end %>
+
+
