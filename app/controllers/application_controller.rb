@@ -20,6 +20,10 @@ class ApplicationController < Sinatra::Base
   	erb :'index.html'
   end
 
+  get '/history' do
+    erb :'history.html'
+  end
+
 
   helpers do 
 
@@ -32,7 +36,13 @@ class ApplicationController < Sinatra::Base
     end
 
     def host
-      Sinatra::Base.production? ? request.host : request.host_with_port
+
+      if Sinatra::Base.production?
+        'https://' + request.host
+      else
+        'http://' + request.host_with_port
+      end
+
     end
 
   end
