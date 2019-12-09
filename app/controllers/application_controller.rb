@@ -1,10 +1,18 @@
 class ApplicationController < Sinatra::Base
-	use Rack::Flash
-	configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-    enable :sessions
-    set :session_secret, 'url_shortner'
+  
+  enable :sessions
+
+  register Sinatra::Flash
+
+  set :views, 'app/views'
+  set :public_folder, 'app/public'
+  
+  configure :development do
+    set :session_secret, 'only_for_development'
+  end
+
+  configure :production do
+    set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
   end
 
   get '/' do
