@@ -7,8 +7,8 @@ class ApplicationController < Sinatra::Base
   set :views, 'app/views'
   set :public_folder, 'app/public'
   
-  configure :development do
-    set :session_secret, 'only_for_development'
+  configure :development, :test do
+    set :session_secret, 'local_server'
   end
 
   configure :production do
@@ -56,6 +56,10 @@ class ApplicationController < Sinatra::Base
 
     def logged_in?
       !!session[:user_id]
+    end
+
+    def host
+      Sinatra::Base.production? ? request.host : request.host_with_port
     end
 
   end
