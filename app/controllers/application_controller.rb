@@ -1,5 +1,9 @@
 class ApplicationController < Sinatra::Base
   
+  before do
+    @title = 'URL Shortener'
+  end  
+
   enable :sessions
 
   register Sinatra::Flash
