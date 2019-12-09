@@ -1,15 +1,17 @@
-ENV["SINATRA_ENV"] ||= "development"
-
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
 
-task :console do 
-	ActiveRecord::Base.logger = Logger.new(STDOUT)
-	Pry.start
+desc 'Interactive console for models' 
+task :console do
+	if ActiveRecord::Base.connection.migration_context.needs_migration?
+		raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
+	end
+	
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+  Pry.start
 end
 
-task :clear_tables do
-	User.delete_all
-	Url.delete_all
+def reload
+  load_all 'app/models'
 end
