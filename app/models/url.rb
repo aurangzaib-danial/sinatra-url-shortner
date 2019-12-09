@@ -1,8 +1,8 @@
 class Url < ActiveRecord::Base
 	belongs_to :user
 
-	def shorten
-		"http://localhost:9393/#{Base32.encode_id(id)}"
+	def shorten(host)
+		host + '/' + Base32.encode_id(id)
 	end
 
 	def self.find_by_shortcode(shortcode)
