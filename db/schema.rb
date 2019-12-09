@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_093858) do
+ActiveRecord::Schema.define(version: 2019_12_09_095442) do
 
   create_table "urls", force: :cascade do |t|
-    t.string "url"
+    t.text "target_url"
     t.integer "user_id"
   end
 
