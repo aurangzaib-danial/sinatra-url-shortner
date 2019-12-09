@@ -1,12 +1,16 @@
 <section id="main">
-	
+	<% if flash[:shortened_url] %>
+		<p id="shortened_url">
+			<a href="<%= flash[:shortened_url]%>" target="_blank"><%= flash[:shortened_url] %></a>
+		</p>
+	<% elsif flash[:error] %>
+		<p id="error">
+			<%= flash[:error] %>
+		</p>
+	<% end %>
 	<form action="/urls" method="post">
-		<input type="text" name="target_url" id="target_url" placeholder="Shorten your link">
+		<input type="text" name="target_url" id="target_url" placeholder="Shorten your link" required>
 		<button type="submit">Shorten</button>
 	</form>
 
-</section>
-
-<section id="history">
-	<h3>History <small><a href="/login">(Login to save your links)</a></small></h3>
 </section>

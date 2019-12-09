@@ -9,15 +9,21 @@ class UrlsController < ApplicationController
   	end
   end
 
-  post '/urls' do
-  	url = Url.new(url: params[:url])
-  	if url.valid_url?
-      url.user_id = session[:user_id] if logged_in?
+	post '/urls' do
+		
+		url = Url.new(target_url: params[:target_url])
+		
+		if url.valid_target_url?
+			
+			# url.user_id = session[:user_id] if logged_in?
+			
   		url.save
-	  	flash[:shortened_url] = url.shorten
+			flash[:shortened_url] = url.shorten(host)
+			
 	  else
-	  	flash[:error] = "Url not valid!"
-	  end
+	  	flash[:error] = "Unable to shorten that link. It is not a valid url."
+		end
+		
 	  redirect '/'
   end
 
