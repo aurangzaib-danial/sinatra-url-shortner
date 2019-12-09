@@ -1,5 +1,14 @@
 class UrlsController < ApplicationController
 
+  get '/:shortcode' do
+  	url_object = Url.find_by_base32_id(params[:shortcode])
+  	if url_object
+  		redirect url_object.url
+  	else
+  		redirect '/'
+  	end
+  end
+
   post '/urls' do
   	url = Url.new(url: params[:url])
   	if url.valid_url?
@@ -10,15 +19,6 @@ class UrlsController < ApplicationController
 	  	flash[:error] = "Url not valid!"
 	  end
 	  redirect '/'
-  end
-
-  get '/:id_base32' do
-  	url_object = Url.find_by_base32_id(params[:id_base32])
-  	if url_object
-  		redirect url_object.url
-  	else
-  		redirect '/'
-  	end
   end
 
   delete '/urls/:id' do
