@@ -1,50 +1,21 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #657b83;
+}
+
 body {
-	font-family: sans-serif;
+  background-color: #fdf6e4;
 }
+
+a {
+  text-decoration: none;
+  color: #859914;
+}
+
 .container {
-	width: 600px;
-	margin: 0 auto;
-}
-
-input, button {
-	font-size: 18px;
-}
-
-input#url {
-	width: 80%;
-	height: 50px;
-	padding: 5px;
-	border-radius: 5px;
-}
-
-.error {
-	color: red;
-}
-
-#signup-login {
-	margin-top: 100px;
-	width: 0 auto;
-	font-size: 20px;
-}
-
-#logout {
-	position: absolute;
-	top: 35px;
-	right: 100px;
-	display: block;
-	font-size: 20px;
-}
-
-#made_by {
-	margin-top: 100px;
-}
-
-ul li {
-	margin-bottom: 20px;
-	max-width: 100%;
-}
-
-ul {
-	max-width: 100%;
-	overflow: hidden;
+  width: 960px;
+  margin: 0 auto;
 }

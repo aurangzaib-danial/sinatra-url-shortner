@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Url Shortner</title>
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>URL Shortener</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 </head>
 <body>
 	<div class="container">
+		<header>
+      <nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<% if logged_in? %>
+						<li><a href="/logout">Logout</a></li>
+					<% else %>
+						<li><a href="/login">Login</a></li>
+						<li><a href="/signup">Signup</a></li>
+					<% end %>
+				</ul>
+      </nav>
+
+			<div id="logo">
+				<h1>URL Shortener</h1>
+			</div>
+
+		</header>
+
 		<%= yield %>
-	</div>
+
+		<footer>
+		
+			<a href="https://github.com/aurangzaib-danial/sinatra-rss-reader" class="social-link" target="_blank">
+			Github Repo
+			</a>
+
+			<a href="https://medium.com/@aurangzaib.danial/sinatra-portfolio-project-5ff8915d8c5b" class="social-link" target="_blank">
+				Blog Post
+			</a>
+
+			<a href="https://youtu.be/GZ-u9Bk6_mE" class="social-link" target="_blank">
+				Video Demo
+			</a>
+			
+			<span>
+				MADE WITH <span id="heart-symbol">&#10084;</span> BY <strong><a href="https://github.com/aurangzaib-danial" target="_blank">Aurangzaib Danial</a></strong>
+			</span>
+		
+		</footer>
+
+	</div><!-- .container -->
 </body>
 </html>
