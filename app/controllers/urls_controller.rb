@@ -1,16 +1,17 @@
 class UrlsController < ApplicationController
 
   get '/:shortcode' do
-  	url_object = Url.find_by_base32_id(params[:shortcode])
-  	if url_object
-  		redirect url_object.url
+		url = Url.find_by_shortcode(params[:shortcode])
+		
+  	if url
+  		redirect url.target_url
   	else
   		redirect '/'
   	end
   end
 
 	post '/urls' do
-		
+
 		url = Url.new(target_url: params[:target_url])
 		
 		if url.valid_target_url?
