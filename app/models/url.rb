@@ -6,9 +6,7 @@ class Url < ActiveRecord::Base
 	end
 
 	def self.find_by_shortcode(shortcode)
-		id = Base32.decode_id(shortcode)
-		
-		find_by_id(id)
+		find_by_id Base32.decode_id(shortcode)
 	end
 
 	def valid_target_url?
