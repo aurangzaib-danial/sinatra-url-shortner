@@ -5,17 +5,32 @@ source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 # gem "rails"
-gem 'sinatra'
-gem 'activerecord', require: 'active_record'
-gem 'sinatra-activerecord', require: 'sinatra/activerecord'
-gem 'sqlite3'
-gem 'rack-flash3', require: 'rack-flash'
-gem 'bcrypt'
-gem 'shotgun'
-gem 'require_all'
+ruby '~> 2.6.3'
 
+gem 'activerecord', '5.2.3', require: 'active_record'
+gem 'require_all'
+gem 'rack'
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'bcrypt'
+gem 'sinatra-flash', require: 'sinatra/flash'
+
+group :production do
+	gem 'pg'
+	gem 'rack-ssl-enforcer', require: 'rack/ssl-enforcer'
+end
+
+group :development, :test do
+	gem 'pry'
+	gem 'sqlite3'
+end
 
 group :development do
-	gem 'pry'
-	gem 'rspec'
+	gem 'shotgun'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'rack-test'
+  gem 'database_cleaner'
 end
