@@ -6,6 +6,6 @@ end
 
 use Rack::MethodOverride
 use Rack::SslEnforcer if production?
-use UsersController
+use SessionsController
 use UrlsController
 run ApplicationController
