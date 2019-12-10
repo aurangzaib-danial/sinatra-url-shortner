@@ -24,11 +24,6 @@ class ApplicationController < Sinatra::Base
   	erb :'index.html'
   end
 
-  get '/history' do
-    erb :'history.html'
-  end
-
-
   helpers do 
 
     def current_user
