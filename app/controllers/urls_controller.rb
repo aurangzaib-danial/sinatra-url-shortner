@@ -11,16 +11,16 @@ class UrlsController < ApplicationController
   end
 
 	post '/urls' do
-
-		url = Url.new(target_url: params[:target_url])
 		
-		if url.valid_target_url?
+		if Url.valid_target_url?(params[:target_url])
 			
-			# url.user_id = session[:user_id] if logged_in?
+			if logged_in?
+				url = Url.find_or_create_by(target_url: params[:target_url], user_id: session[:user_id])
+			else
+				url = Url.create(target_url: params[:target_url])
+			end
 			
-  		url.save
 			flash[:shortened_url] = url.shorten(host)
-			
 	  else
 	  	flash[:error] = "Unable to shorten that link. It is not a valid url."
 		end
