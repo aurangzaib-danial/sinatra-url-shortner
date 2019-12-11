@@ -24,9 +24,15 @@ class UrlsController < ApplicationController
 		@url = Url.find_by_id(params[:id])
 
 		if @url && url_belongs_to_user?
-			url.update(title: params[:title])
+			
+			unless logged_in?
+				url_hash = find_temp_url_hash(@url.id)
+				url_hash[:title] = params[:title] if url_hash
+			end
+
+			@url.update(title: params[:title])
 			flash[:success] = 'Updated title!'
-			redirect "/urls/#{url.id}"
+			redirect "/urls/#{@url.id}"
 		else
 			redirect '/'
 		end
@@ -61,9 +67,13 @@ class UrlsController < ApplicationController
 	end
 	
 	def url_belongs_to_user?
-		temp_url = temporary_urls.detect{|url_hash| url_hash[:id] == @url.id}
+		url_hash = find_temp_url_hash(@url.id)
 
-		temp_url || (logged_in? && @url.user_id == session[:user_id])
+		url_hash || (logged_in? && @url.user_id == session[:user_id])
+	end
+
+	def find_temp_url_hash(id)
+		temporary_urls.detect{|url_hash| url_hash[:id] == id}
 	end
 
 end
