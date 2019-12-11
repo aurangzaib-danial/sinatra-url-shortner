@@ -17,4 +17,14 @@
 
 <section id="history">
 	<h3>History <small><a href="/login">(Login to associate your links)</a></small></h3>
+	
+	<ul>
+		<% history_urls.each do |url| %>
+			<li>
+			<span>Title: <a href="/urls/<%= url.id %>/edit">Add a title</a></span><br>
+			Short Link: <a href="<%= url.shorten(host) %>" target="_blank"></a><%= url.shorten(host) %>
+			<button class="copy-link">Copy</button>
+			</li>
+		<% end %>
+	</ul>
 </section>

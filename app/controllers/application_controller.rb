@@ -47,6 +47,18 @@ class ApplicationController < Sinatra::Base
       session[:temporary_urls] ||= []
     end
 
+
+    def history_urls
+      if logged_in?
+        @history_urls ||= current_user.urls
+
+      else
+        temporary_urls.map do |url_hash|
+          Url.new(url_hash)
+        end
+      end
+    end
+
   end
 
 end
