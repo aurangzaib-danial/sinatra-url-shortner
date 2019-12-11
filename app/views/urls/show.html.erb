@@ -11,7 +11,7 @@
 
   <h3>Short Link <%= '<small><a href="/login">(Login to save your link)</a></small>' unless logged_in? %></h3>
 
-  <a href="<%= @url.shorten(host)%>" target="_blank"><%= @url.shorten(host) %></a> 
+  <a href="<%= @url.shorten(host)%>" target="_blank" class="short_link"><%= @url.shorten(host) %></a> 
   <button class="copy_link">Copy</button>
 
   <h3>Actual Link</h3>
