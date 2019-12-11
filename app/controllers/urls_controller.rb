@@ -50,7 +50,7 @@ class UrlsController < ApplicationController
 		else
 			url = Url.new(target_url: params[:target_url])
 
-			url_hash = temporary_urls.detect {|url_hash| url_hash[:target_url] == params[:target_url]}
+			url_hash = find_temp_url_hash_by_target(params[:target_url])
 
 			if url_hash
 				url.id = url_hash[:id]
@@ -70,10 +70,6 @@ class UrlsController < ApplicationController
 		url_hash = find_temp_url_hash(@url.id)
 
 		url_hash || (logged_in? && @url.user_id == session[:user_id])
-	end
-
-	def find_temp_url_hash(id)
-		temporary_urls.detect{|url_hash| url_hash[:id] == id}
 	end
 
 end

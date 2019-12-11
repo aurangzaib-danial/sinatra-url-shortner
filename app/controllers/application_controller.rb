@@ -47,6 +47,13 @@ class ApplicationController < Sinatra::Base
       session[:temporary_urls] ||= []
     end
 
+    def find_temp_url_hash(id)
+      temporary_urls.detect{|url_hash| url_hash[:id] == id}
+    end
+
+    def find_temp_url_hash_by_target(target)
+      temporary_urls.detect {|url_hash| url_hash[:target_url] == target}
+    end
 
     def history_urls
       if logged_in?
