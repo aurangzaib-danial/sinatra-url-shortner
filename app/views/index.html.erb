@@ -22,7 +22,7 @@
 		<% history_urls.each do |url| %>
 			<li>
 			<span>Title: <a href="/urls/<%= url.id %>/edit">Add a title</a></span><br>
-			Short Link: <a href="<%= url.shorten(host) %>" target="_blank"></a><%= url.shorten(host) %>
+			Short Link: <a href="<%= url.shorten(host) %>" target="_blank"><%= url.shorten(host) %></a>
 			<button class="copy-link">Copy</button>
 			</li>
 		<% end %>
