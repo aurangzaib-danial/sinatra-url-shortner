@@ -16,6 +16,9 @@ class SessionsController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+
+      associate_temporary_urls
+
       redirect '/'
     else
       erb :'sessions/signup.html'
@@ -36,6 +39,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
 
+      associate_temporary_urls
+
       redirect '/'
     else
       flash[:error] = 'Invalid email or password.' 
@@ -48,5 +53,16 @@ class SessionsController < ApplicationController
     session.clear
     redirect '/'
   end
+
+
+  def associate_temporary_urls
+    temporary_urls.each do |url_hash|
+      url = Url.find_by_id(url_hash[:id])
+      url.update(user_id: session[:user_id])
+    end
+
+    temporary_urls.clear
+  end
+
 
 end

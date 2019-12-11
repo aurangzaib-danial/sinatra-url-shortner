@@ -19,7 +19,6 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
   end
 
-
   get '/' do
   	erb :'index.html'
   end
@@ -42,6 +41,10 @@ class ApplicationController < Sinatra::Base
         'http://' + request.host_with_port
       end
 
+    end
+
+    def temporary_urls
+      session[:temporary_urls] ||= []
     end
 
   end
