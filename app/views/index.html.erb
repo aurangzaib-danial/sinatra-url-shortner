@@ -2,6 +2,7 @@
 	<% if flash[:shortened_url] %>
 		<p id="shortened_url">
 			<a href="<%= flash[:shortened_url]%>" target="_blank"><%= flash[:shortened_url] %></a>
+			<button class="copy_link">Copy</button>
 		</p>
 	<% elsif flash[:error] %>
 		<p id="error">
@@ -16,14 +17,15 @@
 </section>
 
 <section id="history">
-	<h3>History <small><a href="/login">(Login to associate your links)</a></small></h3>
+	<h3>History <%= '<small><a href="/login">(Login to save your links)</a></small>' unless logged_in? %>
+	</h3>
 	
 	<ul>
 		<% history_urls.each do |url| %>
 			<li>
-			<span>Title: <a href="/urls/<%= url.id %>/edit">Add a title</a></span><br>
+			<span>Title: <a href="/urls/<%= url.id %>"><%= url.title? ? url.title : 'Add a title' %></a></span><br>
 			Short Link: <a href="<%= url.shorten(host) %>" target="_blank"><%= url.shorten(host) %></a>
-			<button class="copy-link">Copy</button>
+			<button class="copy_link">Copy</button>
 			</li>
 		<% end %>
 	</ul>

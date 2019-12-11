@@ -8,7 +8,29 @@ class UrlsController < ApplicationController
   	else
   		redirect '/'
   	end
-  end
+	end
+	
+	get '/urls/:id' do
+		@url = Url.find_by_id(params[:id])
+
+		if @url && url_belongs_to_user?
+			erb :'urls/show.html'
+		else
+			redirect '/'
+		end
+	end
+
+	patch '/urls/:id' do
+		@url = Url.find_by_id(params[:id])
+
+		if @url && url_belongs_to_user?
+			url.update(title: params[:title])
+			flash[:success] = 'Updated title!'
+			redirect "/urls/#{url.id}"
+		else
+			redirect '/'
+		end
+	end
 
 	post '/urls' do
 		
@@ -36,6 +58,12 @@ class UrlsController < ApplicationController
 		flash[:shortened_url] = url.shorten(host)
 	
 		redirect '/'
-  end
+	end
+	
+	def url_belongs_to_user?
+		temp_url = temporary_urls.detect{|url_hash| url_hash[:id] == @url.id}
+
+		temp_url || (logged_in? && @url.user_id == session[:user_id])
+	end
 
 end

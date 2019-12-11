@@ -1,0 +1,20 @@
+<section id="edit_url">
+  <% if flash[:success] %>
+    <p><%= flash[:success] %></p>
+  <% end %>
+  <form action="/urls/<%= @url.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="title">Title: </label>
+    <input type="text" id="title" name="title" value="<%= @url.title %>"><br>
+    <button type="submit">Save</button>
+  </form>
+
+  <h3>Short Link <%= '<small><a href="/login">(Login to save your link)</a></small>' unless logged_in? %></h3>
+
+  <a href="<%= @url.shorten(host)%>" target="_blank"><%= @url.shorten(host) %></a> 
+  <button class="copy_link">Copy</button>
+
+  <h3>Actual Link</h3>
+  <a href="<%= @url.target_url %>" target="_blank"><%= @url.target_url %></a> 
+  
+</section>
