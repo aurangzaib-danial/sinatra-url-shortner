@@ -37,12 +37,4 @@ class UrlsController < ApplicationController
 	  redirect '/'
   end
 
-  delete '/urls/:id' do
-    url = Url.find_by_id(params[:id])
-    if logged_in? && url.user_id == session[:user_id]
-      url.destroy
-    end 
-    redirect '/'
-  end
-
 end
