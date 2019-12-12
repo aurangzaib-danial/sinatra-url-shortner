@@ -1,5 +1,8 @@
 $(document).ready(function() {
   $('.copy_link').click(function() {
+    
+      $(this).html('Copied!')
+
       const link = $(this).siblings('.short_link')
 
       const temp = $("<input>")
@@ -11,5 +14,9 @@ $(document).ready(function() {
       document.execCommand("copy")
       
       temp.remove()
+      
+      const selected = this
+
+      setTimeout(function(){ $(selected).html('Copy') }, 3000);
   });
 });

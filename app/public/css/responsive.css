@@ -15,3 +15,26 @@
     margin-bottom: 15px;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  #main form button {
+    width: 100%;
+  }
+
+  #shortened_url p {
+    font-size: 1.1em;
+  }
+
+  .copy_link {
+    display: block;
+    margin: 15px 0;
+  }
+
+  #shortened_url button{
+    margin: 15px auto;
+  }
+
+  #history ul li span:last-child{
+    margin-top: 15px;
+  }
+}

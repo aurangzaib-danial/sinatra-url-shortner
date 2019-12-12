@@ -1,4 +1,5 @@
-/* Layout */
+/* Global */
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -15,6 +16,59 @@ a {
   text-decoration: none;
   color: #859914;
 }
+
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 16px 0 16px 16px;
+  border-radius: 4px;
+  border: 1px solid #657b83;
+  background-color: inherit;
+  font-size: 1.2em;
+}
+
+section {
+  margin-top: 1.5em;
+}
+
+.error p {
+  line-height: 1.5em;
+}
+
+.error p, .error li{
+  color: #FF5B5B;
+  font-size: 1.2em;
+}
+
+.error ul {
+  padding-left: 20px;
+}
+
+.error ul li {
+  margin-bottom: 10px;
+}
+
+.copy_link {
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: 0;
+  background-color: #628ed2;
+  color: white;
+  -webkit-transition: 0.12s all;
+  -moz-transition: 0.12s all;
+  -ms-transition: 0.12s all;
+  -o-transition: 0.12s all;
+  transition: 0.12s all;
+  margin-left: 10px;
+}
+
+.copy_link:hover {
+  background-color: #00a7c8;
+  cursor: pointer;
+}
+
+/* Layout */
 
 .container {
   width: 960px;
@@ -48,11 +102,9 @@ nav ul li a {
 
 #logo {
   text-align: center;
-  margin-top: 1.5em;
 }
 
 #logo h1 {
-  margin-top: 0;
   color: #b58900;
 }
 
@@ -71,4 +123,67 @@ footer .social-link {
   color: #ff0000;
 }
 
-/* Root */
+/* Root/Main */
+#shortened_url {
+  text-align: center;
+}
+#shortened_url p {
+  font-size: 1.3em;
+}
+
+#shortened_url button {
+  width: 112px;
+}
+
+#main form button { 
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: 0;
+  background-color: #75B74F;
+  color: white;
+  -webkit-transition: 0.12s all;
+  -moz-transition: 0.12s all;
+  -ms-transition: 0.12s all;
+  -o-transition: 0.12s all;
+  transition: 0.12s all;
+  cursor: pointer;
+}
+
+#main form button:hover {
+  background-color: #66a54a;
+}
+
+/* Root/History */
+#history ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#history ul li {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #657b83;
+}
+
+#history ul li span {
+  display: block;
+}
+
+#history ul li button { 
+  width: 101px;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+
+

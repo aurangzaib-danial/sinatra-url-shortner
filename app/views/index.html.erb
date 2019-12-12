@@ -1,14 +1,27 @@
 <section id="main">
 	<% if flash[:shortened_url] %>
-		<p id="shortened_url">
-			<a href="<%= flash[:shortened_url]%>" target="_blank" class="short_link"><%= flash[:shortened_url] %></a>
-			<button class="copy_link">Copy</button>
-		</p>
+		<div id="shortened_url">
+
+			<p>
+				<a href="<%= flash[:shortened_url]%>" target="_blank" class="short_link">
+					<%= flash[:shortened_url] %>
+				</a>
+
+				<button class="copy_link">Copy</button>
+			</p>
+
+		</div>
+
 	<% elsif flash[:error] %>
-		<p id="error">
-			<%= flash[:error] %>
-		</p>
+
+		<div class="error">
+			<p>
+				<%= flash[:error] %>
+			</p>
+		</div>
+
 	<% end %>
+
 	<form action="/urls" method="post">
 		<input type="text" name="target_url" id="target_url" placeholder="Paste long link" required>
 		<button type="submit">Shorten</button>
@@ -23,9 +36,12 @@
 	<ul>
 		<% history_urls.each do |url| %>
 			<li>
-			<span>Title: <a href="/urls/<%= url.id %>"><%= url.title? ? url.title : 'Add a title' %></a></span><br>
-			Short Link: <a href="<%= url.shorten(host) %>" target="_blank" class="short_link"><%= url.shorten(host) %></a>
+			<span>TITLE: <a href="/urls/<%= url.id %>" class="title"><%= url.title? ? url.title : 'Add one' %></a></span>
+
+			<span>Link: <a href="<%= url.shorten(host) %>" target="_blank" class="short_link"><%= url.shorten(host) %></a>
 			<button class="copy_link">Copy</button>
+			</span>
+
 			</li>
 		<% end %>
 	</ul>
