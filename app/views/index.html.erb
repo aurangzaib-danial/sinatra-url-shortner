@@ -30,7 +30,14 @@
 </section>
 
 <section id="history">
-	<h3>History <%= '<small><a href="/login">(Login to save your links)</a></small>' unless logged_in? %>
+	<h3>History 
+		<small>
+			<% if logged_in? %>
+				<a href="/#history">(<%= current_user.email %>)</a>
+			<% else %>
+				<a href="/login">(Login to save your links)</a>
+			<% end %>
+		</small>
 	</h3>
 	
 	<ul>
