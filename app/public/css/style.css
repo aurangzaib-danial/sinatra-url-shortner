@@ -186,4 +186,13 @@ footer .social-link {
   text-decoration: underline;
 }
 
+#about {
+  margin-top: 2em;
+}
+
+#about p {
+  text-align: justify;
+  font-size: 1.17em;
+  line-height: 1.5.em;
+}
 
