@@ -33,6 +33,7 @@ GEM
     rack-ssl-enforcer (0.2.9)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rake (13.0.1)
     require_all (3.0.0)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -77,6 +78,7 @@ DEPENDENCIES
   rack
   rack-ssl-enforcer
   rack-test
+  rake
   require_all
   rspec
   shotgun
