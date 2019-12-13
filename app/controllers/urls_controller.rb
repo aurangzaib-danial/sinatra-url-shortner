@@ -31,7 +31,7 @@ class UrlsController < ApplicationController
 			end
 
 			@url.update(title: params[:title])
-			flash[:success] = 'Updated title!'
+			flash[:success] = 'Saved!'
 			redirect "/urls/#{@url.id}"
 		else
 			redirect '/'

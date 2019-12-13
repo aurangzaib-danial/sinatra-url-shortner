@@ -1,0 +1,56 @@
+section#edit_url { 
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+#edit_url form {
+  margin-bottom: 2em;
+}
+
+#edit_url form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#edit_url form button { 
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: 0;
+  background-color: #75B74F;
+  color: white;
+  -webkit-transition: 0.12s all;
+  -moz-transition: 0.12s all;
+  -ms-transition: 0.12s all;
+  -o-transition: 0.12s all;
+  transition: 0.12s all;
+  cursor: pointer;
+}
+
+#edit_url form button:hover {
+  background-color: #66a54a;
+}
+
+.success p {
+  color: #859914;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+section#edit_url button.copy_link {
+  width: 96px;
+}
+
+/* Responsive Queries */
+@media only screen and (max-width:400px) {
+  section#edit_url {
+    width: 100%;
+  }
+}
