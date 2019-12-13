@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_115037) do
+ActiveRecord::Schema.define(version: 2019_12_13_050625) do
 
   create_table "urls", force: :cascade do |t|
     t.text "target_url"
     t.integer "user_id"
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

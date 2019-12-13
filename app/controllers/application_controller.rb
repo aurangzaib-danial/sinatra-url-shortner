@@ -57,12 +57,12 @@ class ApplicationController < Sinatra::Base
 
     def history_urls
       if logged_in?
-        @history_urls ||= current_user.urls
+        @history_urls ||= current_user.urls.order(created_at: :desc)
 
       else
         temporary_urls.map do |url_hash|
           Url.new(url_hash)
-        end
+        end.reverse
       end
     end
 
