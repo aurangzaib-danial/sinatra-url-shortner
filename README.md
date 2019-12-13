@@ -8,9 +8,9 @@ What is a URL Shortener?
 
 URL shortening is a technique on the World Wide Web in which a Uniform Resource Locator (URL) may be made substantially shorter and still direct to the required page. This is achieved by using a redirect which links to the web page that has a long URL.
 
-[Watch this video to understand how this app works!]()
+[Watch this video to understand how this app works!](https://youtu.be/qaRWd4NzCPQ)
 
-[Blog Post about this app]()
+[Blog Post about this app](https://aurangzaib-danial.github.io/url_shortener_made_in_sinatra)
 
 ## Built With
 
