@@ -1,0 +1,60 @@
+.sessions {
+  width:  350px;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.sessions h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.sessions input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 16px 0 16px 16px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #657b83;
+  background-color: inherit;
+  color: black;
+}
+
+.sessions label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.sessions button {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-top: 40px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: 0;
+  background-color: #628ed2;
+  color: white;
+  
+  -webkit-transition: 0.12s all;
+  -moz-transition: 0.12s all;
+  -ms-transition: 0.12s all;
+  -o-transition: 0.12s all;
+  transition: 0.12s all;
+}
+
+.sessions button:hover {
+  background-color: #00a7c8;
+  cursor: pointer;
+}
+
+/* Responsive Queries */
+@media only screen and (max-width: 400px) {
+  .sessions {
+    width: 100%;
+  }
+
+}
