@@ -15,6 +15,10 @@ gem 'sinatra-activerecord'
 gem 'bcrypt'
 gem 'sinatra-flash', require: 'sinatra/flash'
 
+group :development, :production do
+  gem 'rake'
+end
+
 group :production do
 	gem 'pg'
 	gem 'rack-ssl-enforcer', require: 'rack/ssl-enforcer'
