@@ -1,4 +1,4 @@
-# RSS Reader Made in Sinatra
+# URL Shortener Made in Sinatra
 
 ## Description
 
