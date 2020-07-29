@@ -10,7 +10,7 @@ URL shortening is a technique on the World Wide Web in which a Uniform Resource 
 
 [Watch this video to understand how this app works!](https://youtu.be/qaRWd4NzCPQ)
 
-[Blog Post about this app](https://aurangzaib-danial.github.io/url_shortener_made_in_sinatra)
+[Blog Post about this app](https://dev.to/aurangzaibdanial/url-shortener-made-in-sinatra-53gm)
 
 ## Built With
 
